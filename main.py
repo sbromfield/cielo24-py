@@ -4,8 +4,8 @@ from datastore import datastore
 from folder import folder
 import datetime
 '''
-Quick and dirty hack by stephen to add cc to course capture videos 
-Need to add better error handling 
+Quick and dirty hack by stephen to add cc to course capture videos
+Need to add better error handling
 '''
 if __name__ == "__main__":
   print "Starting..."
@@ -57,7 +57,6 @@ if __name__ == "__main__":
               else:
                  print "not ready"
 
-          break
 
 
   except KeyboardInterrupt:
