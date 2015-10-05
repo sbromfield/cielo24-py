@@ -8,9 +8,10 @@ class datastore:
 
     def __init__(self):
         print "Set up database"
+        self.addr = os.path.dirname(os.path.realpath(sys.argv[0]))
         try:
-            self.newdb = not os.path.exists('data.db')
-            self.con = sqlite3.connect('data.db')
+            self.newdb = not os.path.exists(self.addr + '/data.db')
+            self.con = sqlite3.connect(self.addr + '/data.db')
             self.cur = self.con.cursor()
 
         except:
@@ -20,7 +21,7 @@ class datastore:
     def loadtables(self):
         if self.newdb:
             print "loading tables into the db!"
-            with open("schema.sql", 'rt') as f:
+            with open(self.addr + "/schema.sql", 'rt') as f:
                 schema = f.read()
                 self.con.executescript(schema)
         else:
